@@ -1,0 +1,9 @@
+public class ChangeSet {
+    
+    //get all apex classes
+    @AuraEnabled(cacheable=true)
+    public static List<Sobject> getData(String objectName){
+        String query = 'SELECT Id,Name FROM '+ objectName + ' Order By lastmodifieddate';
+        return Database.query(query);
+    }
+    }
